@@ -6,7 +6,7 @@
 /*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 15:43:16 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/08/04 16:16:49 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2024/08/04 17:07:00 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Phonebook::Phonebook() {
     this->index = 0;
+    this->size = 0;
 }
 
 Phonebook::~Phonebook() {
@@ -63,6 +64,7 @@ void Phonebook::add() {
 
     ++index;
     if (index == 8) index = 0;
+    if (size <= 8) size++;
 }
 
 void	Phonebook::print(Contact contact)
@@ -85,18 +87,38 @@ Contact	Phonebook::get_contact(int index)
 	return (this->contacts[index]);
 }
 
+void	Phonebook::list_contacts(void)
+{
+    int i = 0;
+	std::cout << "\t---INDEX----FIRST_NAME--LAST_NAME--NICKNAME--" << std::endl;
+	while (i < size)
+	{
+		std::cout << "\t|    " << i+1;
+		std::cout << "|   " << this->contacts[i].get_first_name();
+		std::cout << "|   " << this->contacts[i].get_last_name();
+		std::cout << "|   " << this->contacts[i].get_nickname();
+		std::cout << "|   " << std::endl;
+        i++;
+	}
+	std::cout << "\t---------------------------------------------" << std::endl;
+}
+
 void Phonebook::search() {
     std::string s = "";
+    bool valid = 1;
 
+    this->list_contacts();
     std::cout << "Select an index: ";
     if (std::getline(std::cin, s) && s != "")
 	{
 			while (not (s.size() == 1 and (s[0] >= '1' and s[0] <= '8') and \
-					this->contacts[s[0] - 1 - '0'].get_first_name().size())) {
-    			std::cout << "Invalid index!" << std::endl;
-                std::getline(std::cin, s);
+                this->contacts[s[0] - 1 - '0'].get_first_name().size())) {
+                std::cout << "Invalid index!" << std::endl;
+                valid = 0;
+                break;
             }
 	}
-    this->print(this->contacts[s[0] - 1 - '0']);
+    if (valid)
+        this->print(this->contacts[s[0] - 1 - '0']);
 }
 
