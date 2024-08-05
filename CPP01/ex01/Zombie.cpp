@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 18:23:50 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/08/06 00:17:12 by fcosta-f         ###   ########.fr       */
+/*   Created: 2024/08/05 18:34:59 by fcosta-f          #+#    #+#             */
+/*   Updated: 2024/08/06 00:33:41 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main(void)
+Zombie::Zombie() {
+	name = "Zombie";
+}
+
+Zombie::Zombie(std::string name) {
+	this->name = name;
+}
+
+Zombie::~Zombie() {
+	
+}
+
+void Zombie::setName(std::string name) {
+	this->name = name;
+}
+
+void	Zombie::announce(void) const
 {
-	Zombie	zombie1("Zombie1");
-	Zombie	zombie2;
-
-	zombie1.announce();
-	zombie2.announce();
-	randomChump("randomChumpZ");
-
-	Zombie	*heapZ;
-
-	heapZ = newZombie("HeapZ");
-	heapZ->announce();
-	delete(heapZ);
-
-	return (0);
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

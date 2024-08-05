@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 18:23:50 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/08/06 00:17:12 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2024/08/06 00:37:49 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,9 @@
 
 int	main(void)
 {
-	Zombie	zombie1("Zombie1");
-	Zombie	zombie2;
+	Zombie *z = zombieHorde(1, "javier");
 
-	zombie1.announce();
-	zombie2.announce();
-	randomChump("randomChumpZ");
-
-	Zombie	*heapZ;
-
-	heapZ = newZombie("HeapZ");
-	heapZ->announce();
-	delete(heapZ);
+	delete(z);
 
 	return (0);
 }
