@@ -5,26 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/05 18:22:07 by fcosta-f          #+#    #+#              #
-#    Updated: 2024/08/11 17:14:36 by fcosta-f         ###   ########.fr        #
+#    Created: 2024/08/11 17:13:49 by fcosta-f          #+#    #+#              #
+#    Updated: 2024/08/11 17:14:56 by fcosta-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp zombieHorde.cpp Zombie.cpp 
+SRC = main.cpp 
 
 CC = c++
 
-%.o: %.c Zombie.hpp Makefile
+%.o: %.c Makefile
 	${CC} ${CPPFLAGS} -c $< -o $@	
 
 OBJ = $(SRC:.cpp=.o)
-
 
 RM = rm -f
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = zombie
+NAME = brain
 
 all: $(NAME)
 
