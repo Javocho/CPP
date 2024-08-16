@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 17:34:08 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/08/12 00:31:20 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2024/08/16 18:50:01 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 Weapon::Weapon(std::string weapon) {
 	this->setType(weapon);
+}
+
+Weapon::~Weapon() {
+	
 }
 
 std::string const Weapon::getType() const {
