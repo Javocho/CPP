@@ -6,7 +6,7 @@
 /*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 18:59:14 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/08/16 23:45:54 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2024/08/16 23:54:04 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void replaceString(std::ofstream &output, std::string s1, std::string s2, std::s
 	size_t t;
 	 
 	find = input.find(s1);
+	
 	if (find == std::string::npos) {
 		output << input;
 	}
