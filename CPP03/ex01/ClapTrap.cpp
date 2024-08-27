@@ -6,7 +6,7 @@
 /*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 17:03:45 by javocho           #+#    #+#             */
-/*   Updated: 2024/08/24 18:48:17 by javocho          ###   ########.fr       */
+/*   Updated: 2024/08/27 19:13:16 by javocho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ ClapTrap::ClapTrap(): name(""), health(10), energy(10), damage(0) {
 }
 
 ClapTrap::ClapTrap(std::string name): name(name), health(10), energy(10), damage(0) {
+    std::cout << "ClapTrap with name " <<  this->name << " created!" << std::endl ;
+}
+
+ClapTrap::ClapTrap(std::string name, unsigned int health, unsigned int energy, unsigned int damage): name(name), health(health), energy(energy), damage(damage) {
     std::cout << "ClapTrap with name " <<  this->name << " created!" << std::endl ;
 }
 
@@ -38,7 +42,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copy) {
 
 void		ClapTrap::display(std::ostream& stream) const
 {
-	stream << "Clap-TP " << name << " has " << health << " hit points, " << energy << " energy points and " << damage << " attack dammage.";
+	stream << "ClapTrap " << name << " has " << health << " hit points, " << energy << " energy points and " << damage << " attack dammage.";
 }
 
 std::ostream&	operator<<(std::ostream& stream, ClapTrap const& cl)
@@ -80,4 +84,47 @@ void ClapTrap::takeDamage(unsigned int amount) {
         this->health-=amount;
     }
     else std::cout << this->name << " is dead." << std::endl;
+}
+
+
+//SETTERS AND GETTERS
+
+std::string	ClapTrap::getName(void) const
+{
+	return (this->name);
+}
+
+int	ClapTrap::getHealth(void) const
+{
+	return (this->health);
+}
+
+int	ClapTrap::getEnergy(void) const
+{
+	return (this->energy);
+}
+
+int	ClapTrap::getDamage(void) const
+{
+	return (this->damage);
+}
+
+void	ClapTrap::setName(std::string name)
+{
+	this->name = name;
+}
+
+void ClapTrap::setHealth(unsigned int h)
+{
+	this->health = h;
+}
+
+void	ClapTrap::setEnergy(unsigned int e)
+{
+	this->energy = e;
+}
+
+void	ClapTrap::setDamage(unsigned int a)
+{
+	this->damage = a;
 }

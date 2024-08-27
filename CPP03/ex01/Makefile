@@ -6,15 +6,15 @@
 #    By: javocho <javocho@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/24 16:58:58 by javocho           #+#    #+#              #
-#    Updated: 2024/08/24 18:48:28 by javocho          ###   ########.fr        #
+#    Updated: 2024/08/27 17:35:39 by javocho          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 CC = c++
 
-%.o: %.c Makefile ClapTrap.hpp
+%.o: %.c Makefile ClapTrap.hpp ScavTrap.hpp
 	${CC} ${CPPFLAGS} -c $< -o $@	
 
 OBJ = $(SRC:.cpp=.o)

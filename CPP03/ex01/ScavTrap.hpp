@@ -6,7 +6,7 @@
 /*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 00:42:44 by javocho           #+#    #+#             */
-/*   Updated: 2024/08/25 00:43:05 by javocho          ###   ########.fr       */
+/*   Updated: 2024/08/27 19:02:52 by javocho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,16 @@
 # include <string>
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class	ScavTrap: public ClapTrap
 {
 	public:
 		ScavTrap();
-		ScavTrap(std::string name);
+		ScavTrap(const std::string name);
+		ScavTrap(const ScavTrap &s);
 		~ScavTrap();
-		ScavTrap(ScavTrap const&);
-		void		display(std::ostream& stream) const;
-		void 		attack(std::string const& target);
-		void		guardGate();
-
-	private:
+		ScavTrap	&operator=(const ScavTrap &s);
+		void		attack(const std::string &target);
+		void		guardGate(void) const;
 };
-
-std::ostream&	operator<<(std::ostream& stream, ScavTrap const& cl);
 
 #endif
