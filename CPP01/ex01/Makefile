@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+         #
+#    By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 18:22:07 by fcosta-f          #+#    #+#              #
-#    Updated: 2024/08/11 17:14:36 by fcosta-f         ###   ########.fr        #
+#    Updated: 2024/09/01 18:56:16 by fcosta-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

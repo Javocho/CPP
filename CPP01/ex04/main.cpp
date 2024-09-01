@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 18:59:14 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/08/16 23:54:04 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2024/09/01 19:10:34 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ void replaceString(std::ofstream &output, std::string s1, std::string s2, std::s
 }
 
 int main(int argc, char **argv) {
-	if (argc != 4) return 1;
+	if (argc != 4) {
+		std::cout << "ni esto haces bien tio " << std::endl;
+		return 1;
+	}
 	std::ifstream in;
 	std::ofstream out;
 	std::string s1;

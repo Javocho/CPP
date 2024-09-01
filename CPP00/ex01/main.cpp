@@ -6,7 +6,7 @@
 /*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 15:13:28 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/08/04 16:09:24 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2024/08/09 19:38:01 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int main() {
     std::string s;
 
     while (s != "EXIT") {
+        if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return (0);
+		}
         std::cout << "Blackberry >";
         
         std::getline(std::cin, s);

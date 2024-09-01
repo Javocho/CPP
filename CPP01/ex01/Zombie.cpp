@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 18:34:59 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/08/06 00:33:41 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2024/09/01 18:55:19 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 Zombie::Zombie() {
 	name = "Zombie";
+	std::cout << "Zombie created" << std::endl;
 }
 
 Zombie::Zombie(std::string name) {
 	this->name = name;
+	std::cout << "Zombie" << this->name << " created" << std::endl;
 }
 
 Zombie::~Zombie() {
-	
+	std::cout << "Zombie " << this->name << " destroyed" << std::endl;
 }
 
 void Zombie::setName(std::string name) {
