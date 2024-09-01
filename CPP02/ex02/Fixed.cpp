@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcosta-f <fcosta-f@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 19:53:18 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/08/23 20:17:40 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2024/09/01 20:06:38 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed(const int n): value(n << fractional) {
 	
 }
 
-Fixed::Fixed(const float value): value(roundf(value * (1 << this->fractional))) {
+Fixed::Fixed(const float value): value(value * (1 << this->fractional)) {
 
 } 
 
