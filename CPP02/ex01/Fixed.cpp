@@ -6,7 +6,7 @@
 /*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 01:07:38 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/09/01 20:04:15 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:41:32 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ Fixed::Fixed() :value(0) {
 
 Fixed::Fixed(const int n): value(n << fractional) {
 	std::cout << "Fixed object created with int constructor" << std::endl; 
-}
+} //parte fraccional a cero
 
 Fixed::Fixed(const float value): value(roundf(value * (1 << this->fractional))) {
 	std::cout << "Fixed object created with float constructor" << std::endl; 
-} 
+} //31.5 * 64 = 2016
+//2016 / 64 = 31.5
 
 Fixed::~Fixed() {
 	std::cout << "Fixed object destroyed" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 19:53:18 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/09/01 20:06:38 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:48:15 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,18 +95,16 @@ Fixed	Fixed::operator--()
 	return (*this);
 }
 
-Fixed	Fixed::operator++(int)
+Fixed	Fixed::operator++(int) //postincremento
 {
 	Fixed tmp = *this;
-	// i = this->_fp_value;
 	++this->value;
-	return (tmp);
+	return (tmp); //original
 }
 
 Fixed	Fixed::operator--(int)
 {
 	Fixed tmp = *this;
-	// i = this->_fp_value;
 	--this->value;
 	return (tmp);
 }
