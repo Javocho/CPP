@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 17:03:45 by javocho           #+#    #+#             */
-/*   Updated: 2024/08/27 19:13:16 by javocho          ###   ########.fr       */
+/*   Updated: 2024/09/05 20:48:46 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ ClapTrap::ClapTrap(std::string name, unsigned int health, unsigned int energy, u
 }
 
 ClapTrap::~ClapTrap() {
-    std::cout << "ClapTrap with name " << this->name << " destroyed" << std::endl;
+    if (this->name != "") std::cout  << "ClapTrap destructor with name " << this->name << std::endl;
+    else std::cout  << "ClapTrap destructor without name" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy) {
@@ -50,11 +51,6 @@ std::ostream&	operator<<(std::ostream& stream, ClapTrap const& cl)
 	cl.display(stream);
 	return (stream);
 }
-
-
-// ClapTrap::std::string getName() const {
-//     reuturn (this->name);
-// }
 
 void ClapTrap::attack(const std::string& target) {
     if (this->health == 0) std::cout << "PLS STOP CLAPTRAP IS DEAD!" << std::endl;
@@ -84,47 +80,4 @@ void ClapTrap::takeDamage(unsigned int amount) {
         this->health-=amount;
     }
     else std::cout << this->name << " is dead." << std::endl;
-}
-
-
-//SETTERS AND GETTERS
-
-std::string	ClapTrap::getName(void) const
-{
-	return (this->name);
-}
-
-int	ClapTrap::getHealth(void) const
-{
-	return (this->health);
-}
-
-int	ClapTrap::getEnergy(void) const
-{
-	return (this->energy);
-}
-
-int	ClapTrap::getDamage(void) const
-{
-	return (this->damage);
-}
-
-void	ClapTrap::setName(std::string name)
-{
-	this->name = name;
-}
-
-void ClapTrap::setHealth(unsigned int h)
-{
-	this->health = h;
-}
-
-void	ClapTrap::setEnergy(unsigned int e)
-{
-	this->energy = e;
-}
-
-void	ClapTrap::setDamage(unsigned int a)
-{
-	this->damage = a;
 }

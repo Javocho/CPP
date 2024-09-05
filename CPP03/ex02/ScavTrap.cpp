@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 00:44:51 by javocho           #+#    #+#             */
-/*   Updated: 2024/08/27 19:18:59 by javocho          ###   ########.fr       */
+/*   Updated: 2024/09/05 20:56:45 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 ScavTrap::ScavTrap() :
 	ClapTrap("", 100, 50, 20)
 {
-	std::cout << "ScavTrap constructor" << std::endl;
+	std::cout << "ScavTrap constructor without name" << std::endl;
 }
-ScavTrap::ScavTrap(std::string name) :
-	ClapTrap(name, 100, 50, 20)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 {
-	std::cout << "ScavTrap name constructor" << std::endl;
+	std::cout << "ScavTrap name constructor with name " << this->name <<  std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap destructor" << std::endl;
+    if (this->name != "") std::cout  << "ScavTrap destructor with name " << this->name << std::endl;
+    else std::cout  << "ScavTrap destructor without name" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &copy) {
@@ -36,13 +36,13 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &copy) {
 }
 
 void ScavTrap::attack(const std::string& target) {
-    if (this->getHealth() == 0) std::cout << "PLS STOP SCAVTRAP IS DEAD!" << std::endl;
-    else if (this->getEnergy() > 0) {
-        std::cout << "ScavTrap " << this->getName() << " attacks " << target << ", causing " << this->getDamage() << " points of damage!" << std::endl;
-        this->setEnergy(this->getEnergy() - 1);
+    if (this->health == 0) std::cout << "PLS STOP SCAVTRAP IS DEAD!" << std::endl;
+    else if (this->energy > 0) {
+        std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->damage << " points of damage!" << std::endl;
+        this->energy = this->energy - 1;
 
     }
-    else std::cout << this->getName() << " doesn't have more energy!" << std::endl;
+    else std::cout << this->name << " doesn't have more energy!" << std::endl;
 
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 19:36:34 by javocho           #+#    #+#             */
-/*   Updated: 2024/08/30 19:47:51 by javocho          ###   ########.fr       */
+/*   Updated: 2024/09/05 20:57:07 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ FragTrap::FragTrap(const std::string &name): ClapTrap(name) {
     this->health = 100;
     this->energy = 100;
     this->damage = 30;
-    std::cout  << "FragTrap created" << std::endl;
+    std::cout  << "FragTrap created with name " << this->name << std::endl;
 }
 
 FragTrap::~FragTrap() {
-    std::cout << "FragTrap destroyed" << std::endl;
+    if (this->name != "") std::cout  << "FragTrap destructor with name " << this->name << std::endl;
+    else std::cout  << "FragTrap destructor without name" << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &cpy) {

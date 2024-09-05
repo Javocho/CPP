@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:59:28 by javocho           #+#    #+#             */
-/*   Updated: 2024/08/30 19:46:26 by javocho          ###   ########.fr       */
+/*   Updated: 2024/09/05 20:49:42 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,6 @@ class ClapTrap {
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-
-        std::string	getName(void) const;
-		int		    getHealth(void) const;
-		int		    getEnergy(void) const;
-		int		    getDamage(void) const;
-		void		setName(std::string name);
-		void		setHealth(unsigned int h);
-		void		setEnergy(unsigned int e);
-		void		setDamage(unsigned int a);
 };
     
     std::ostream&	operator<<(std::ostream& stream, ClapTrap const& cl);
