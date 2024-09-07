@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 20:13:13 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/09/07 12:09:30 by javocho          ###   ########.fr       */
+/*   Updated: 2024/09/07 20:13:41 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Dog: public Animal {
     public:
         Dog();
         Dog(Dog & cpy);
-        ~Dog();
+        virtual ~Dog();
 		Dog & operator=(Dog const & cpy);
-        void makeSound() const;
+        virtual void makeSound() const;
 };
 
 #endif

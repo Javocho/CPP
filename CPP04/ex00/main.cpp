@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 11:11:48 by javocho           #+#    #+#             */
-/*   Updated: 2024/09/07 12:27:04 by javocho          ###   ########.fr       */
+/*   Updated: 2024/09/07 20:16:16 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,17 @@ int main() {
     std::cout << j->getType() << std::endl;
     std::cout << w->getType() << std::endl;
     std::cout << wc->getType() << std::endl;
-    i->makeSound(); //will output the cat sound!
+    i->makeSound();
     j->makeSound();
     meta->makeSound();
     w->makeSound();
     wc->makeSound();
+
+    delete meta;
+    delete i;
+    delete j;
+    delete w;
+    delete wc;
+    
     return 0;
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: javocho <javocho@student.42.fr>            +#+  +:+       +#+         #
+#    By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/01 20:10:10 by fcosta-f          #+#    #+#              #
-#    Updated: 2024/09/07 12:30:23 by javocho          ###   ########.fr        #
+#    Updated: 2024/09/07 20:12:33 by fcosta-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJ = $(SRC:.cpp=.o)
 
 RM = rm -f
 
-CPPFLAGS = -Wall -Wextra -Werror -g -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -g -std=c++98 -fsanitize=address
 
 NAME = animals
 

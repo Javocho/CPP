@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 20:13:42 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/09/07 12:09:36 by javocho          ###   ########.fr       */
+/*   Updated: 2024/09/07 20:12:28 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Cat: public Animal {
     public:
         Cat();
         Cat(Cat & cpy);
-        ~Cat();
+        virtual ~Cat();
 		Cat & operator=(Cat const & cpy);
-        void makeSound() const;
+        virtual void makeSound() const;
 };
 
 #endif
