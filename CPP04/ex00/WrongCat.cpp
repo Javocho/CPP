@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/01 20:20:28 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/09/07 12:13:21 by javocho          ###   ########.fr       */
+/*   Created: 2024/09/07 12:23:50 by javocho           #+#    #+#             */
+/*   Updated: 2024/09/07 12:28:44 by javocho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat() {
-    this->type = "Cat";
-    std::cout << "Cat created" << std::endl;
+WrongCat::WrongCat()
+{
+	this->type = "wrong cat";
+	std::cout << "Wrong cat constructed\n";
 }
 
-Cat::~Cat() {
-    std::cout << "Cat destroyed" << std::endl;
+WrongCat::~WrongCat()
+{
+	std::cout << "Wrong cat destroyed\n";
 }
 
-Cat::Cat(Cat & cpy): Animal(cpy)
+WrongCat::WrongCat(WrongCat & cpy): WrongAnimal(cpy)
 {
 	this->type = cpy.getType();
-	std::cout << "A cat was constructed from copy\n" << std::endl;
+	std::cout << "Cat constructed from copy\n";
 }
 
-Cat & Cat::operator=(Cat const & cpy)
+WrongCat & WrongCat::operator=(WrongCat const & cpy)
 {
 	this->type = cpy.type;
 	return (*this);
 }
 
-void Cat::makeSound() const {
-    std::cout << "miaaaauuu" << std::endl;
+void WrongCat::makeSound() const
+{
+	std::cout << "Fake meow\n";
 }

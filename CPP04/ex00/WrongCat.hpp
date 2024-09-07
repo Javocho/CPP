@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/01 20:13:42 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/09/07 12:09:36 by javocho          ###   ########.fr       */
+/*   Created: 2024/09/07 12:23:29 by javocho           #+#    #+#             */
+/*   Updated: 2024/09/07 12:24:37 by javocho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat: public Animal {
-    protected:
+class WrongCat: public WrongAnimal
+{
+	protected:
 
-    public:
-        Cat();
-        Cat(Cat & cpy);
-        ~Cat();
-		Cat & operator=(Cat const & cpy);
-        void makeSound() const;
+	public:
+		WrongCat();
+		~WrongCat();
+		WrongCat(WrongCat & cpy);
+		WrongCat & operator=(WrongCat const & cpy);
+		void makeSound() const;
 };
 
 #endif
