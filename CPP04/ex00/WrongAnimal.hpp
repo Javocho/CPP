@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 12:21:33 by javocho           #+#    #+#             */
-/*   Updated: 2024/09/07 12:30:09 by javocho          ###   ########.fr       */
+/*   Updated: 2024/09/08 16:57:48 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class WrongAnimal
 		WrongAnimal(WrongAnimal & cpy);
 		WrongAnimal & operator=(WrongAnimal const & cpy);
 
-		virtual void makeSound() const;
+		void makeSound() const;
 		std::string getType( void ) const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 12:23:29 by javocho           #+#    #+#             */
-/*   Updated: 2024/09/07 20:16:03 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2024/09/08 16:57:55 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class WrongCat: public WrongAnimal
 		virtual ~WrongCat();
 		WrongCat(WrongCat & cpy);
 		WrongCat & operator=(WrongCat const & cpy);
-		virtual void makeSound() const;
+		void makeSound() const;
 };
 
 #endif

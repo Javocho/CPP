@@ -6,7 +6,7 @@
 /*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 20:19:20 by fcosta-f          #+#    #+#             */
-/*   Updated: 2024/09/07 20:33:00 by fcosta-f         ###   ########.fr       */
+/*   Updated: 2024/09/08 17:17:29 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,17 @@ Dog::~Dog() {
 Dog::Dog(Dog & cpy): Animal(cpy)
 {
 	this->type = cpy.getType();
+    this->b = new Brain(*cpy.b);
 	std::cout << "A dog was constructed from copy\n" << std::endl;
 }
 
 Dog & Dog::operator=(Dog const & cpy)
 {
+    std::cout << "Dog Assignation operator called" << std::endl;
+    if (this == &cpy) return *this;
 	this->type = cpy.type;
+    this->b = new Brain();
+    *this->b = *cpy.b;
 	return (*this);
 }
 
