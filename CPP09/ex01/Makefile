@@ -6,14 +6,14 @@
 #    By: javocho <javocho@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/07 18:54:07 by javocho           #+#    #+#              #
-#    Updated: 2025/02/07 18:54:41 by javocho          ###   ########.fr        #
+#    Updated: 2025/04/20 17:08:43 by fcosta-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.cpp RPN.cpp
 CC = c++
 
-%.o: %.c Makefile RPN.hpp
+%.o: %.cpp Makefile RPN.hpp
 	${CC} ${CPPFLAGS} -c $< -o $@	
 
 OBJ = $(SRC:.cpp=.o)

@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fcosta-f < fcosta-f@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 21:48:48 by javocho           #+#    #+#             */
-/*   Updated: 2025/02/01 12:38:38 by javocho          ###   ########.fr       */
+/*   Updated: 2025/04/14 15:05:15 by fcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
-//mirar si tipo está bien, no me dejaba uintptr_t
 
 Serializer::Serializer(void)
 {

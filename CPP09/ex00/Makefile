@@ -6,14 +6,14 @@
 #    By: javocho <javocho@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/07 18:23:47 by javocho           #+#    #+#              #
-#    Updated: 2025/02/07 18:24:43 by javocho          ###   ########.fr        #
+#    Updated: 2025/04/20 17:08:25 by fcosta-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.cpp BitcoinExchange.cpp
 CC = c++
 
-%.o: %.c Makefile BitcoinExchange.hpp
+%.o: %.cpp Makefile BitcoinExchange.hpp
 	${CC} ${CPPFLAGS} -c $< -o $@	
 
 OBJ = $(SRC:.cpp=.o)
