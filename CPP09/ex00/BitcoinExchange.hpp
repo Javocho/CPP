@@ -1,47 +1,30 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 18:24:02 by javocho           #+#    #+#             */
-/*   Updated: 2025/02/07 18:26:42 by javocho          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
 #include <iostream>
 #include <fstream>
-#include <map>
 #include <sstream>
-#include <stdexcept>
+#include <string>
+#include <map>
+#include <vector>
 
-class BitcoinExchange {
+class Btc
+{
 private:
-    std::map<std::string, double> _exchangeRates;
+	std::map<std::string, float> data;
+	int readFlag;
 
 public:
-    BitcoinExchange();
-    BitcoinExchange(const BitcoinExchange &other);
-    BitcoinExchange &operator=(const BitcoinExchange &other);
-    ~BitcoinExchange();
+	Btc();
+	Btc(const Btc &var);
+	~Btc();
 
-    void loadDatabase(const std::string &filename);
-    double getExchangeRate(const std::string &date) const;
-    void processInputFile(const std::string &filename) const;
+	Btc &operator=(const Btc &var);
 
-    class FileException : public std::exception {
-    public:
-        const char *what() const throw();
-    };
-
-    class InvalidDataException : public std::exception {
-    public:
-        const char *what() const throw();
-    };
+	void setData(std::string date, float value);
+	std::map<std::string, float> getData();
+	std::vector<std::string> splitString(std::string str, char delimiter);
+	void readInput(std::string inputPath);
 };
 
 #endif

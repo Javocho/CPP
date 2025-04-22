@@ -1,102 +1,165 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: javocho <javocho@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 18:28:20 by javocho           #+#    #+#             */
-/*   Updated: 2025/02/07 18:53:57 by javocho          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "BitcoinExchange.hpp"
+#include <cstdlib>  // Para strtod
 
-BitcoinExchange::BitcoinExchange() {}
+// Whitespace characters to remove (space, tab, newline, carriage return)
+const char* WHITESPACE = " \t\n\r";
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) {
-    *this = other;
+// Trim whitespace characters from the beginning of a string
+static std::string& ltrim(std::string& s)
+{
+    s.erase(0, s.find_first_not_of(WHITESPACE));
+    return s;
 }
 
-BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
-    if (this != &other)
-        this->_exchangeRates = other._exchangeRates;
-    return *this;
+// Trim whitespace characters from the end of a string
+static std::string& rtrim(std::string& s)
+{
+    s.erase(s.find_last_not_of(WHITESPACE) + 1);
+    return s;
 }
 
-BitcoinExchange::~BitcoinExchange() {}
-
-double BitcoinExchange::getExchangeRate(const std::string &date) const {
-    std::map<std::string, double>::const_iterator it = _exchangeRates.lower_bound(date);
-
-    if (it == _exchangeRates.begin() && it->first != date)
-        throw InvalidDataException();
-
-    if (it == _exchangeRates.end() || it->first != date)
-        --it;
-
-    return it->second;
+// Trim whitespace characters from both ends of a string
+static std::string& trim(std::string& s)
+{
+    return ltrim(rtrim(s));
 }
 
-void BitcoinExchange::loadDatabase(const std::string &filename) {
-    std::ifstream file(filename.c_str()); 
-
-    if (!file)
-        throw FileException();
-
-    std::string line;
-    while (std::getline(file, line)) {
-        std::istringstream ss(line);
-        std::string date;
-        double rate;
-
-        if (std::getline(ss, date, ',') && (ss >> rate))
-            _exchangeRates[date] = rate;
-    }
-    file.close();
-}
-
-void BitcoinExchange::processInputFile(const std::string &filename) const {
-    std::ifstream file(filename.c_str()); 
-
-    if (!file)
-        throw FileException();
-
-    std::string line;
-    while (std::getline(file, line)) {
-        std::istringstream ss(line);
-        std::string date;
-        double value;
-
-        if (!(std::getline(ss, date, '|') && (ss >> value))) {
-            std::cerr << "Error: bad input => " << line << std::endl;
+Btc::Btc()
+{
+	int i = 0;
+	this->readFlag = 1;
+	std::ifstream file("./data.csv");
+	if (!file.is_open())
+	{
+		this->readFlag = 0;
+		return;
+	}
+	std::string line;
+	while(std::getline(file, line))
+	{
+		if (i == 0)
+		{
+			i = 1;
+			continue;
+		}
+		size_t pos = line.find(',');
+		if (pos == std::string::npos)
+		{
+			std::cerr << "Error : Invalid Paramter" << std::endl;
+			continue;
+		}
+		std::string date = line.substr(0, pos);
+        std::string valStr = line.substr(pos + 1);
+        const char* val_str = valStr.c_str();
+        char* end;
+        double value = std::strtod(val_str, &end);
+        if (*end != '\0')
+        {
+            std::cerr << "Error: could not parse value" << std::endl;
             continue;
         }
-
-        if (value < 0) {
-            std::cerr << "Error: not a positive number." << std::endl;
-            continue;
-        }
-        if (value > 1000) {
-            std::cerr << "Error: too large a number." << std::endl;
-            continue;
-        }
-
-        try {
-            double exchangeRate = getExchangeRate(date);
-            std::cout << date << " => " << value << " = " << (value * exchangeRate) << std::endl;
-        } catch (const std::exception &e) {
-            std::cerr << e.what() << std::endl;
-        }
-    }
-    file.close();
+		this->setData(date, (float)value);
+	}
+	file.close();
 }
 
-
-const char *BitcoinExchange::FileException::what() const throw() {
-    return "Error: could not open file.";
+Btc::~Btc()
+{
 }
 
-const char *BitcoinExchange::InvalidDataException::what() const throw() {
-    return "Error: bad input format.";
+Btc &Btc::operator=(Btc const &var)
+{
+	this->data = var.data;
+	return (*this);
+}
+
+Btc::Btc(Btc const &var)
+{
+	*this = var;
+}
+
+void Btc::setData(std::string date, float value)
+{
+	this->data.insert(std::make_pair(date, value));
+}
+
+std::map<std::string, float> Btc::getData()
+{
+	return (this->data);
+}
+
+std::vector<std::string> Btc::splitString(std::string str, char delimiter)
+{
+	std::vector<std::string> substrings;
+	std::string substring = "";
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (str[i] != delimiter)
+		{
+			substring += str[i];
+		}
+		else
+		{
+			substrings.push_back(substring);
+			while (str[i] == delimiter)
+				i++;
+			i--;
+			substring = "";
+		}
+	}
+	substrings.push_back(substring);
+	return substrings;
+}
+
+void Btc::readInput(std::string inputPath)
+{
+	int i = 0;
+	std::ifstream file2(inputPath.c_str());
+	if (!file2.is_open())
+	{
+		this->readFlag = -1;
+		return;
+	}
+	std::string line;
+	std::vector<std::string> vectorLine;
+	while(std::getline(file2, line))
+	{
+		if (i == 0)
+		{
+			i = 1;
+			continue;
+		}
+		vectorLine = this->splitString(line, '|');
+		if (vectorLine.size() < 2 || vectorLine[1].length() == 0)
+		{
+			std::cout << "Error: bad input => " << vectorLine[0] << std::endl;
+			continue;
+		}
+		std::string date = trim(vectorLine[0]);
+		std::map<std::string, float>::iterator it = this->data.upper_bound(date);
+
+		// Manejo explícito del caso en que no hay ninguna fecha anterior
+		if (it != this->data.begin() && it->first != date) --it;
+		const char* val_str = vectorLine[1].c_str();
+		char* end;
+		double inputValue = std::strtod(val_str, &end);
+		if (*end != '\0')
+		{
+			std::cout << "Error : Input Not A Number" << std::endl;
+			continue;
+		}
+		if (inputValue > 1000)
+		{
+			std::cout << "Error: too large a number." << std::endl;
+		}
+		else if (inputValue < 0)
+		{
+			std::cout << "Error: not a positive number." << std::endl;
+		}
+		else
+		{
+			std::cout << date << " => " << inputValue << " = " << inputValue * it->second << std::endl;
+		}
+	}
+	file2.close();
 }
